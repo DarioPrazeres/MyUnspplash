@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "My Unsplash";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <div class="menu">
+        <img src="~/assets/my_unsplash_logo.svg" />
+        <div class="search">
+            <img src="~/assets/search.png" />
+            <input type="text" placeholder="Search by name"/>
+        </div>
+    </div>
+    <button type="button" class="add-btn" id="add-btn">Add a Photo</button>
+</header>
+<div class="images">
+    @for (int i = 0; i < ViewBag.Image.ToArray().Length; i++)
+    {
+        <div>
+           @ViewBag.Image[i].Label
+           @ViewBag.Image[i].UrlFile
+           @Html.ActionLink("Delete", "Delete", new { id = ViewBag.Image[i].Id })
+        </div>
+    }
+</div>
