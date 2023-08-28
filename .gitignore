@@ -1,0 +1,23 @@
+# Arquivos de compilação e objetos
+*.obj
+*.exe
+*.pdb
+*.dll
+
+# Arquivos de configuração
+*.user
+*.suo
+*.sln.docstates
+
+# Diretório de saída de compilação
+bin/
+obj/
+
+# Arquivos temporários
+[Tt]emp/
+Esses são apenas alguns exemplos de padrões que você pode incluir no arquivo ".gitignore". A ideia é personalizá-lo de acordo com as necessidades do seu projeto para garantir que apenas os arquivos essenciais sejam versionados pelo Git.
+
+
+
+
+
