@@ -3,23 +3,103 @@
     ViewBag.Title = "My Unsplash";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .deleteHover {
+        font-weight: 600;
+        width: 75px;
+        height: 35px;
+        padding: 5px;
+        background: none;
+        color: #EB5757;
+        border: solid 1px #EB5757;
+        border-radius: 38px;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+    .sectionDelete {
+        position: absolute;
+        top: 0px;
+        width: 98.9vw;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.333);
+        display: none;
+        justify-content:center;
+        align-items: center;
+    }
+    .deleteForm {
+        width: 400px;
+        height: 200px;
+        border-radius: 12px;
+        background: #FFF;
+        position: relative;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .form-button-delete{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    .deleteForm button {
+        font-size: 16px;
+        border: none;
+        background: none;
+    }
+    .deleteForm .cancel{
+        color: #bdbdbd;
+    }
+    .deleteForm .delete {
+        width: 105px;
+        height: 35px;
+        background: #eb5757;
+        border-radius: 12px;
+        color: #FFF;
+    }
+
+</style>
 <header>
     <div class="menu">
         <img src="~/assets/my_unsplash_logo.svg" />
         <div class="search">
             <img src="~/assets/search.png" />
-            <input type="text" placeholder="Search by name"/>
+            <input type="text" id="pesquisaInput" placeholder="Search by name" oninput="realizarPesquisa()" />
         </div>
     </div>
-    <button type="button" class="add-btn" id="add-btn">Add a Photo</button>
+    <button type="button" class="add-btn" id="add-btn" onclick="openForm('addForm')">Add a Photo</button>
 </header>
-<div class="images">
+<div class="images" id="sectionImages">
     @for (int i = 0; i < ViewBag.Image.ToArray().Length; i++)
     {
-        <div>
-           @ViewBag.Image[i].Label
-           @ViewBag.Image[i].UrlFile
-           @Html.ActionLink("Delete", "Delete", new { id = ViewBag.Image[i].Id })
+        <div class="imageSection" onmouseout="closeLabel(@i)" onmousemove="showLabel(@i)">
+            <div class="imageDetail">
+                <img id="imageSrc" src="@Url.Content(@ViewBag.Image[i].UrlFile)" />
+                <div class="imageDetailHover">
+                    <h3 class="labelImage">@ViewBag.Image[i].Label</h3>
+                    <button type="button" class="deleteHover" onclick="openForm('sectionDelete')" >Delete</button>
+                </div>
+            </div>      
+            @Html.ActionLink("Delete", "Delete", new { id = ViewBag.Image[i].Id })
         </div>
-    }
+        
+    }    
 </div>
+<div class="sectionDelete" id="sectionDelete">
+    <div class="deleteForm">
+        <h3>Are you sure you want to delete it?</h3>
+        <div class="form-button-delete">
+            <button type="button" class="cancel" id="cancel" onclick="hiddenForm('sectionDelete')">Cancel</button>
+            <button class="delete" type="submit">Delete</button>
+                @for (int i = 0; i < ViewBag.Image.ToArray().Length; i++)
+                { 
+                    <p>@ViewBag.Image[i].Id </p>
+                }
+        </div>
+    </div>
+</div>
+@*
+    @Html.ActionLink("Delete", "Delete", new { id = ViewBag.Image[i].Id })
+*@

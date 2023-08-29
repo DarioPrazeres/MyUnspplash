@@ -3,7 +3,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()    
-    <div class="add-form" id="addForm">
+    <div class="add-form" id="">
         <h4>Add a new photo</h4>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-input">
@@ -17,13 +17,8 @@
             </div>
         </div>
 
-        <label for="File" name="File" class="file">
-            Local Upload
-            <input type="file" name="File" id="File" accept="image/*" />
-        </label>
-
         <div class="form-button">
-            <button type="button" class="cancel" id="cancel" onclick="hiddenForm()">Cancel</button>
+            <button type="button" class="cancel" id="cancel" onclick="hiddenForm('addForm')">Cancel</button>
             <button class="submit" type="submit">Submit</button>
         </div>
     </div>

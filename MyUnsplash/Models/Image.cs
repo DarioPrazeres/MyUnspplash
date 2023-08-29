@@ -12,6 +12,6 @@ namespace MyUnsplash.Models
         [Required]
         public string Label { get; set; }
         public string UrlFile { get; set; }
-        public HttpPostedFileBase File { get; set; }
+        public HttpPostedFileBase file { get; set; }
     }
 }

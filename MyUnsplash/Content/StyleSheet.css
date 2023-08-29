@@ -1,0 +1,213 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    width: 99.9%;
+    margin: 0px;
+    padding: 0px;
+}
+/*------------Header Section------*/
+header{
+    padding: 30px 60px 30px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+header img {
+    width: 138px;
+    height: 26px;
+}
+header .search{
+    border-radius: 12px;
+    width: 270px;
+    height: 40px;
+    border: solid 1px #bdbdbd;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+header .search img{
+    width: 24px;
+    height: 24px;
+}
+header .search input{
+    color: #333;
+    width: 80%;
+    height: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height:19.07px;
+    padding: 7px;
+    border: none;
+    outline: none;  
+}
+header .menu{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    width: 450px;
+}
+header  .add-btn{
+    border: none;
+    background: none;
+    font-size: 13px;
+    color: #FFF;
+    width: 105px;
+    height: 40px;
+    border-radius: 12px;
+    background: #3DB46D;
+    box-shadow: 0px 4px 10px 0px #3DB46D33;
+}
+/*------------Visualizacao das images-----*/
+.images {
+    padding: 30px 60px 30px 60px;
+    columns: 4;
+    column-gap: 20px;
+}
+.images .imageDetail{ 
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+.images .imageDetailHover{
+   position: absolute;
+   top: 0px;
+   width: 100%;
+   height: 99%;
+   break-inside: avoid;
+   background: #00000061;
+   /*background: rgba(0, 0, 0, 0.333);*/
+   border-radius: 12px;
+   display: none;
+   align-items: flex-end;
+}
+.imageSection {
+    width: 100%;
+}
+.images h3 {
+    color: #fff;
+    margin: 0px 0px 40px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.images .imageDetail img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+/*--------------Create Form ------------*/
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 18px;
+}
+.create {
+    background: rgba(0, 0, 0, 0.271);
+    width: 500px;
+    height: 320px;    
+    top: 0;
+    left: 0;
+    width: 99.9vw;
+    height: 99.9vh;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.add-form {
+    padding: 20px 10px 10px 10px;
+    width: 500px;
+    height: 320px;
+    border-radius: 12px;
+    position: relative;
+    background-color: #fff;
+}
+
+.add-form input{
+    margin: 10px 0px 10px 0px;
+    padding: 7px;
+    width: 420px;
+    height: 45px;
+    border-radius: 12px;
+    border: 1px solid #4f4f4f;
+    outline: none;
+    color: #333;
+    font-size: 16px;
+}
+.form-input div {
+    margin: auto;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    margin: 7px 0px 7px 0px;
+}
+.form-input {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.file {
+    text-align:center;
+    position: absolute;
+    left: 40px;
+    bottom: 10px;
+    color: #FFF;
+    width: 105px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #2F80ED;
+    box-shadow: 0px 4px 10px 0px #3DB46D33;
+}
+.form-button {
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+}
+.form-button button{
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+.form-button .cancel {
+    color: #bdbdbd;
+}
+.form-button .submit {
+    color: #FFF;
+    width: 105px;
+    height: 40px;
+    border-radius: 12px;
+    background: #3DB46D;
+    box-shadow: 0px 4px 10px 0px #3DB46D33;
+}
+
+/*------Footer Style ---------*/
+footer {
+    text-align: center;
+    color: #A9A9A9;
+}
+footer a{
+    color: #A9A9A9;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #A9A9A9;
+    text-decoration: underline;
+}

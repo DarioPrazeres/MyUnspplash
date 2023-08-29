@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using MyUnsplash.Models;
+using System.IO;
 
 namespace MyUnsplash.Controllers
 {
@@ -20,11 +21,35 @@ namespace MyUnsplash.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Image Image)
+        public ActionResult Index([Bind(Include = "Id, Label, UrlFile")] Image Image)
         {
+            if (ModelState.IsValid)
+            {
+                Save(Image);
+                ViewBag.Image = GetTodos();
+                return RedirectToAction("Index");
+                
+            }
             Save(Image);
             ViewBag.Image = GetTodos();
             return View();
+        }
+        
+        public ActionResult Delete(Guid id)
+        {
+            //DeleteImage(id);
+            return RedirectToAction("Listagem");
+        }
+        public void DeleteImage(Guid Id)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(CS))
+            {
+                sqlCon.Open();
+                string query = "Delete from Image Where Id=@Id";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@Id", Id);
+                sqlCmd.ExecuteNonQuery();
+            }
         }
         public void Save(Image model)
         {
@@ -32,11 +57,12 @@ namespace MyUnsplash.Controllers
             using (SqlConnection sqlCon = new SqlConnection(CS))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Image VALUES(@Id, @Label, @UrlFile)";
+                string query = "INSERT INTO Image VALUES(@Id, @Label, @UrlFile, @DataRegistro)";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@Id", model.Id);
                 sqlCmd.Parameters.AddWithValue("@Label", model.Label);
                 sqlCmd.Parameters.AddWithValue("@UrlFile", model.UrlFile);
+                sqlCmd.Parameters.AddWithValue("@DataRegistro", DateTime.Now);
                 sqlCmd.ExecuteNonQuery();
             }
         }
@@ -45,7 +71,7 @@ namespace MyUnsplash.Controllers
             List<Image> ImageL = new List<Image>();
             using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Image", con);
+                SqlCommand cmd = new SqlCommand("  SELECT * FROM Image ORDER BY DataRegistro DESC", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();

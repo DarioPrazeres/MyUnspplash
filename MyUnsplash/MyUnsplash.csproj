@@ -130,6 +130,7 @@
   <ItemGroup>
     <Content Include="assets\my_unsplash_logo.svg" />
     <Content Include="assets\search.png" />
+    <Content Include="Content\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Script.js" />
@@ -149,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
     <Folder Include="fonts\" />
     <Folder Include="images\" />
   </ItemGroup>

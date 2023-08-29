@@ -5,13 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link href="https://fonts.googleapis.com/css?family=Noto" rel="stylesheet">
-    
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="~/Content/StyleSheet.css" />
 </head>
 <body>
     @RenderBody()
-    @RenderPage("~/Views/Home/Create.cshtml")
+    <div class="create" id="addForm">
+        @RenderPage("~/Views/Home/Create.cshtml")
+    </div>
     <footer>
         <p>Created by <a href="https://github.com/DarioPrazeres">Dario Prazeres</a>- devChallengs.io</p>
     </footer>
