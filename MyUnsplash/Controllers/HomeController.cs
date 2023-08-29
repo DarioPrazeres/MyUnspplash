@@ -37,8 +37,8 @@ namespace MyUnsplash.Controllers
         
         public ActionResult Delete(Guid id)
         {
-            //DeleteImage(id);
-            return RedirectToAction("Listagem");
+            DeleteImage(id);
+            return RedirectToAction("Index");
         }
         public void DeleteImage(Guid Id)
         {
@@ -68,7 +68,7 @@ namespace MyUnsplash.Controllers
         }
         public List<Image> GetTodos()
         {
-            List<Image> ImageL = new List<Image>();
+            List<Image> ImageList = new List<Image>();
             using (SqlConnection con = new SqlConnection(CS))
             {
                 SqlCommand cmd = new SqlCommand("  SELECT * FROM Image ORDER BY DataRegistro DESC", con);
@@ -81,11 +81,11 @@ namespace MyUnsplash.Controllers
                     Image.Id = Guid.Parse(rdr["Id"].ToString());
                     Image.Label = rdr["Label"].ToString();
                     Image.UrlFile = rdr["UrlFile"].ToString();
-                    ImageL.Add(Image);
+                    ImageList.Add(Image);
                 }
             }
 
-            return ImageL;
+            return ImageList;
         }
     }
 }

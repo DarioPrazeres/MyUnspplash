@@ -154,6 +154,12 @@
     <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OpenAPIs\.json">
+      <Namespace>TheCat</Namespace>
+      <ClassName>TheCatApi</ClassName>
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>https://developers.thecatapi.com/</SourceUri>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

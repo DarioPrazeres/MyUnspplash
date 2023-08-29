@@ -44,7 +44,7 @@
         bottom: 20px;
         right: 20px;
     }
-    .deleteForm button {
+    .deleteForm button, .deleteForm a {
         font-size: 16px;
         border: none;
         background: none;
@@ -52,14 +52,18 @@
     .deleteForm .cancel{
         color: #bdbdbd;
     }
-    .deleteForm .delete {
+    .deleteForm a.delete {
+        padding: 12px;
         width: 105px;
         height: 35px;
         background: #eb5757;
         border-radius: 12px;
         color: #FFF;
+        text-decoration: none;
     }
-
+    #valueInit{
+        display: none;
+    }
 </style>
 <header>
     <div class="menu">
@@ -73,16 +77,15 @@
 </header>
 <div class="images" id="sectionImages">
     @for (int i = 0; i < ViewBag.Image.ToArray().Length; i++)
-    {
+    {   <p id="valueInit">@ViewBag.Image[i].Id</p>
         <div class="imageSection" onmouseout="closeLabel(@i)" onmousemove="showLabel(@i)">
             <div class="imageDetail">
                 <img id="imageSrc" src="@Url.Content(@ViewBag.Image[i].UrlFile)" />
                 <div class="imageDetailHover">
                     <h3 class="labelImage">@ViewBag.Image[i].Label</h3>
-                    <button type="button" class="deleteHover" onclick="openForm('sectionDelete')" >Delete</button>
+                    <button type="button" class="deleteHover" onclick="openFormSection('sectionDelete', @i)" >Delete</button>
                 </div>
             </div>      
-            @Html.ActionLink("Delete", "Delete", new { id = ViewBag.Image[i].Id })
         </div>
         
     }    
@@ -90,16 +93,10 @@
 <div class="sectionDelete" id="sectionDelete">
     <div class="deleteForm">
         <h3>Are you sure you want to delete it?</h3>
+        <p id="idValue">Value:</p>
         <div class="form-button-delete">
             <button type="button" class="cancel" id="cancel" onclick="hiddenForm('sectionDelete')">Cancel</button>
-            <button class="delete" type="submit">Delete</button>
-                @for (int i = 0; i < ViewBag.Image.ToArray().Length; i++)
-                { 
-                    <p>@ViewBag.Image[i].Id </p>
-                }
+            <a class="delete" id="deleteLink" >Delete</a>
         </div>
     </div>
 </div>
-@*
-    @Html.ActionLink("Delete", "Delete", new { id = ViewBag.Image[i].Id })
-*@

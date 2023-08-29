@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Uploading Image</h1>
+<h1 align="center">My Unsplash</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://github.com/DarioPrazeres/uploadImgDotNet">
+    <a href="https://github.com/DarioPrazeres/MyUnspplash">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/O2iGT9yBd6xZBrOcVirx">
+    <a href="https://devchallenges.io/challenges/rYyhwJAxMfES5jNQ9YsP">
       Challenge
     </a>
   </h3>
@@ -32,9 +32,9 @@
 
 ## Overview
 
-![screenshot](https://github.com/DarioPrazeres/uploadImgDotNet/blob/main/banner.png)
+![screenshot](https://github.com/DarioPrazeres/MyUnspplash/blob/main/Banner.png)
 
-This project is a basic a Uploading File Image, only you can see your image after you make uploading.
+This project is a basic a Unsplash Website where you can save your favorite images and see later, so you delete one and search images by label.
 
 ### Built With
 
@@ -51,11 +51,11 @@ This project is a basic a Uploading File Image, only you can see your image afte
 
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/O2iGT9yBd6xZBrOcVirx) was to build an application to complete the given user stories.
 
-User story: I can drag and drop an image to upload it
-User story: I can choose to select an image from my folder
-User story: I can see a loader when uploading
-User story: When the image is uploaded, I can see the image and copy it
-User story: I can choose to copy to the clipboard
+User story: I can see a list of photos in the masonry layout that I have added
+User story: I can add a new photo to the list - the new photo should be on top of the list
+User story: I can search for photos by label
+User story: When I hover a photo, I can see a label and a delete button
+User story: I can delete images
 
 ## How To Use
 
