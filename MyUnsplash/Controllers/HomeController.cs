@@ -45,7 +45,7 @@ namespace MyUnsplash.Controllers
             using (SqlConnection sqlCon = new SqlConnection(CS))
             {
                 sqlCon.Open();
-                string query = "Delete from Image Where Id=@Id";
+                string query = "Delete from ImageModel Where Id=@Id";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@Id", Id);
                 sqlCmd.ExecuteNonQuery();
@@ -57,7 +57,7 @@ namespace MyUnsplash.Controllers
             using (SqlConnection sqlCon = new SqlConnection(CS))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Image VALUES(@Id, @Label, @UrlFile, @DataRegistro)";
+                string query = "INSERT INTO ImageModel VALUES(@Id, @Label, @UrlFile, @DataRegistro)";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@Id", model.Id);
                 sqlCmd.Parameters.AddWithValue("@Label", model.Label);
@@ -71,7 +71,7 @@ namespace MyUnsplash.Controllers
             List<Image> ImageList = new List<Image>();
             using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlCommand cmd = new SqlCommand("  SELECT * FROM Image ORDER BY DataRegistro DESC", con);
+                SqlCommand cmd = new SqlCommand("  SELECT * FROM ImageModel ORDER BY DataRegistro DESC", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
